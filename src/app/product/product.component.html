@@ -1,4 +1,12 @@
-<div *ngFor="let product of products" class="col-md-4 col-sm-4 col-lg-4">
+<div class="row">
+	<div class="col-sm-12">
+		<div class="form-group">
+			<!-- 当input的value值发生改变时，titleFilter这个字段就会往外发射valueChange事件。我们要做的就是订阅这个事件，然后把它的值保存到keyword中 -->
+			<input [formControl]="titleFilter" class="form-control" placeholder="输入商品名称...">
+		</div>
+	</div>
+</div>
+<div *ngFor="let product of products | filter:'title':keyWord" class="col-md-4 col-sm-4 col-lg-4">
 	<div class="thumbnail">
 		<img [src]="imgSrc" alt="">
 		<div class="caption">
