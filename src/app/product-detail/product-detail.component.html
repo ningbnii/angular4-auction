@@ -13,6 +13,17 @@
 	</div>
 </div>
 <div class="well">
+	<div>
+		<div><button (click)="isCommentHidden=!isCommentHidden" class="btn btn-success">评论</button></div>
+		<!-- 这里是一个可编辑的星 -->
+		<div [hidden]="isCommentHidden">
+			<div><app-stars [readonly]="false" [(rating)]="newRating"></app-stars></div>
+			<div>
+				<textarea [(ngModel)]="newComment"></textarea>
+			</div>
+			<div><button class="btn" (click)="addComment()">提交</button></div>
+		</div>
+	</div>
 	<div class="row" *ngFor="let comment of comments">
 		<hr>
 		<div class="col-md-12">
